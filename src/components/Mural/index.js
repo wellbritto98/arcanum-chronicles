@@ -9,13 +9,13 @@ const Mural = () => {
             <div className='real-container'>
                 <Navbar className='p-0' expand="lg">
                     <Container className='p-0'>
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" className='bg-warning m-3 p-1' />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="me-auto w-100">
-                                <Nav.Link className='item-navegacao w-100 ' href="#sobre-o-jogo">Sobre o jogo</Nav.Link>
-                                <Nav.Link className='item-navegacao w-100 ' href="#atualizacoes">Atualizações</Nav.Link>
-                                <Nav.Link className='item-navegacao w-100 ' href="#qualquer-coisa1">Qualquer coisa</Nav.Link>
-                                <Nav.Link className='item-navegacao w-100 ' href="#qualquer-coisa2">Qualquer coisa</Nav.Link>
+                                <Nav.Link className='item-navegacao w-100 d-flex align-items-center justify-content-center ' href="#sobre-o-jogo">Sobre o jogo</Nav.Link>
+                                <Nav.Link className='item-navegacao w-100 d-flex align-items-center justify-content-center' href="#atualizacoes">Atualizações</Nav.Link>
+                                <Nav.Link className='item-navegacao w-100 d-flex align-items-center justify-content-center' href="#qualquer-coisa1">Qualquer coisa</Nav.Link>
+                                <Nav.Link className='item-navegacao w-100 d-flex align-items-center justify-content-center' href="#qualquer-coisa2">Qualquer coisa</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>

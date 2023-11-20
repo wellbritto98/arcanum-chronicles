@@ -12,7 +12,7 @@
 
 .form-login .form-label {
     color: #FFF;
-    font-family: Eagle Lake;
+    font-family: 'Roboto Slab', serif;
 }
 
 .form-login .form-control {
@@ -23,7 +23,7 @@
 
 .form-login .form-text {
     color: #FFF;
-    font-family: Eagle Lake;
+    font-family: 'Roboto Slab', serif;
     font-size: 10px;
 }
 
@@ -33,7 +33,7 @@
     border-radius: 8px;
     border: 2px solid #DFB74E;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: Eagle Lake;
+    font-family: 'Roboto Slab', serif;
 }
 
 .btn-warning:hover {
@@ -48,6 +48,6 @@
 }
 
 .form-check-label {
-    font-family: 'Eagle Lake', cursive; /* Mudar a fonte para Eagle Lake */
+    font-family: 'Roboto Slab', serif; /* Mudar a fonte para Eagle Lake */
     font-size: 0.8rem; /* Diminuir o tamanho da fonte */
 }
