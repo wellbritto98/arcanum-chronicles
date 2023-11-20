@@ -2,16 +2,21 @@
     background: linear-gradient(180deg, #0F1931 0%, #212C49 100%);
     height: 92.5vh;
     width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 .main-content-login{
-    background-image: url(D:\Projetos\Pessoal\ArcanumChroniclesFront\arcanum-chronicles\public\images\background.png);
+    background-image: url(D:\Projetos\Particular\arcanum-chronicles\public\images\background.png); ;
+    background-repeat: no-repeat;
+
+    background-position: center;
+    max-width: 1440px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     height: 100%;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-
-    display: grid;
-    grid-template-columns: 1fr 
 }

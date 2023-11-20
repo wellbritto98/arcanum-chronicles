@@ -1,0 +1,99 @@
+.section-login {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 1151px;
+    height: 86px;
+    flex-shrink: 0;
+    border-radius: 0px 0px 15px 15px;
+    background: rgba(15, 25, 49, 0.90);
+}
+
+
+.form-login {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+
+.password {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.form-login label {
+    margin: 0 20px; 
+    color: #FFF;
+
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Eagle Lake;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.form-login input {
+    border-radius: 8px;
+    border: none;
+    background: #F6F6F6;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 258px;
+    height: 18px;
+    padding: 10px 10px;
+    flex-shrink: 0;
+}
+
+.form-login a {
+    color: #FFF;
+    text-align: start;
+    font-family: Eagle Lake;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+}
+
+.form-login button {
+    width: 171px;
+    height: 34px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: #DFB74E;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #383838;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Eagle Lake;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 63px;
+    margin-right: 34px;
+    cursor: pointer;
+}
+
+.form-login button:hover {
+    background: #F6F6F6;
+    color: #DFB74E;
+    transition: 0.5s;
+    border: 3px solid #DFB74E;
+}
+
+.email-span{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-login input:focus {
+    box-shadow: 0 0 10px rgba(223, 183, 78, 0.5), 0 0 20px rgba(223, 183, 78, 0.5);
+    outline: none; /* Remove o contorno padrão */
+    transition: 0.5s;
+}

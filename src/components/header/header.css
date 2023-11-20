@@ -38,6 +38,7 @@
   font-weight: 400;
   line-height: normal;
   text-decoration: none;
+  padding: 0 1rem;
 }
 
 .nav-actions {
@@ -76,7 +77,8 @@
 }
 
 .btn-register:hover {
-  background-color: #ffcd4e;
-  transition: ease-in-out 0.1s;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background: #F6F6F6;
+  color: #DFB74E;
+  transition: 0.5s;
+  border: 3px solid #DFB74E;
 }
