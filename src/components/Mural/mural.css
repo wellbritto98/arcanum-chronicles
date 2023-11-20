@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap');
+
+
+.item-navegacao:first-child {
+    border-radius: 2rem 0rem 0rem 0rem;
+    border-right: 2px solid #162344;
+}
+
+.item-navegacao:last-child {
+    border-radius: 0rem 2rem 0rem 0rem;
+    border-left: 2px solid #162344;
+}
+
+.item-navegacao {
+    border-radius: 0rem 0rem 0rem 0rem;
+    border-right: 2px solid #162344;
+    border-left: 2px solid #162344;
+    font-family: 'Eagle Lake', cursive;
+    background: #DFB74E;
+    color: black;
+}
+
+
+
+.item-navegacao:hover {
+    background: #bb9433;
+    color: #ffffff;
+    transition: ease-in-out 0.3s;
+}
+
+.custom-text-container {
+    max-width: 800px;
+    /* Ajuste conforme necessário */
+    width: 100%;
+    margin: 0 auto;
+    /* Centraliza dentro da coluna */
+}
+
+.custom-text {
+    color: #FFF;
+
+    text-align: justify;
+    font-family: Eagle Lake;
+    font-size: 0.81rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.real-container {
+    background: rgba(15, 25, 49, 0.90);
+    border-radius: 2.2rem;
+}
+
+
+@media screen and (max-width: 768px) {
+    .item-navegacao {
+        flex-basis: 100%; /* Makes each button take full width */
+        border: none; /* Remove borders if not needed */
+      }
+    .item-navegacao:first-child {
+        border-radius: 0rem 0rem 0rem 0rem;
+        border-right: 0px solid #162344;
+    }
+    .item-navegacao:last-child {
+        border-radius: 0rem 0rem 0rem 0rem;
+        border-left: 0px solid #162344;
+    }
+    
+}
+  

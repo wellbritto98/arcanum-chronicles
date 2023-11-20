@@ -1,84 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap');
 
-
-.header {
+.bg-dark {
   background: linear-gradient(180deg, #162344 0%, #172549 80.12%, #0F1931 100%);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  font-family: 'Eagle Lake', cursive;
-  /* Certifique-se de importar a fonte Eagle Lake */
 }
 
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1440px;
+.header-ac .navbar-brand img {
+  height: 40px; /* Ajuste conforme necessário */
 }
 
-.nav-logo {
-  font-size: 24px;
-  color: white;
-  text-decoration: none;
+.header-ac .nav-link {
+  color: #C7915E !important;
 }
 
-.nav-links {
-  display: flex;
-  align-items: center;
-}
-
-.nav-links a {
+.header-ac .navbar-text {
   color: #C7915E;
-  font-family: Eagle Lake;
-  font-size: 1rem;
-  font-style: none;
-  font-weight: 400;
-  line-height: normal;
-  text-decoration: none;
-  padding: 0 1rem;
 }
 
-.nav-actions {
-  display: flex;
-  align-items: center;
-}
-
-.playersOn {
-  color: #C7915E;
-
-  font-family: Eagle Lake;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.btn-register {
-  background-color: #DFB74E;
-  color: #172549;
-  border-radius: 0.5rem;
-  font-family: 'Eagle Lake', cursive;
-  color: #383838;
-  text-align: center;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: Eagle Lake;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  width: 10.6875rem;
-  height: 2.125rem;
-  cursor: pointer;
-
-
-}
-
-.btn-register:hover {
-  background: #F6F6F6;
-  color: #DFB74E;
-  transition: 0.5s;
-  border: 3px solid #DFB74E;
-}

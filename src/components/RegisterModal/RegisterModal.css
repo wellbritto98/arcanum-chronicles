@@ -1,0 +1,38 @@
+/* RegisterModal.css */
+
+/* Corrige o alinhamento do texto dos labels */
+.md-form label {
+    position: absolute;
+    top: -1rem;
+    left: 0;
+    font-size: 0.8rem; /* Reduz o tamanho da fonte do label */
+    color: #757575; /* Cor do texto do label */
+    background-color: #fff; /* Cor de fundo para cobrir qualquer texto abaixo */
+    padding: 0 0.25rem; /* Adiciona um pouco de padding nas laterais do label */
+    transition: 0.2s; /* Suaviza a transição */
+}
+
+/* Ajusta o estilo dos inputs para se parecer com o modal desejado */
+.modal-content .form-control {
+    border: 1px solid #ced4da; /* Adiciona borda aos inputs */
+    height: calc(1.5em + 0.75rem + 2px); /* Ajusta a altura do input */
+    padding: 0.375rem 0.75rem; /* Ajusta o padding do input */
+    margin-bottom: 1rem; /* Adiciona uma margem abaixo do input */
+}
+
+/* Ajusta o botão para combinar com o estilo do modal desejado */
+.modal-content .btn-deep-orange {
+    color: #fff; /* Cor do texto */
+    background-color: #ff4500; /* Cor de fundo do botão */
+    border-color: #ff4500; /* Cor da borda do botão */
+}
+
+/* Certifique-se de que o ícone esteja visível e estilizado corretamente */
+.modal-content .fas {
+    margin-right: 0.5rem; /* Adiciona margem à direita do ícone */
+}
+
+/* Adiciona um pouco de espaço no topo do modal */
+.modal-content {
+    padding-top: 1rem; /* Espaço no topo do conteúdo do modal */
+}
