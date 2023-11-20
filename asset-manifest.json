@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/arcanum-chronicles/static/css/main.d6d19dc0.css",
+    "main.js": "/arcanum-chronicles/static/js/main.92fbe749.js",
+    "index.html": "/arcanum-chronicles/index.html",
+    "main.d6d19dc0.css.map": "/arcanum-chronicles/static/css/main.d6d19dc0.css.map",
+    "main.92fbe749.js.map": "/arcanum-chronicles/static/js/main.92fbe749.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d6d19dc0.css",
+    "static/js/main.92fbe749.js"
+  ]
+}
