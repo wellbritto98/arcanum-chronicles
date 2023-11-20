@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/arcanum-chronicles/static/css/main.1fc5d724.css",
-    "main.js": "/arcanum-chronicles/static/js/main.33b65fcc.js",
+    "main.css": "/arcanum-chronicles/static/css/main.1c38b478.css",
+    "main.js": "/arcanum-chronicles/static/js/main.308ad7e9.js",
     "index.html": "/arcanum-chronicles/index.html",
-    "main.1fc5d724.css.map": "/arcanum-chronicles/static/css/main.1fc5d724.css.map",
-    "main.33b65fcc.js.map": "/arcanum-chronicles/static/js/main.33b65fcc.js.map"
+    "main.1c38b478.css.map": "/arcanum-chronicles/static/css/main.1c38b478.css.map",
+    "main.308ad7e9.js.map": "/arcanum-chronicles/static/js/main.308ad7e9.js.map"
   },
   "entrypoints": [
-    "static/css/main.1fc5d724.css",
-    "static/js/main.33b65fcc.js"
+    "static/css/main.1c38b478.css",
+    "static/js/main.308ad7e9.js"
   ]
 }
