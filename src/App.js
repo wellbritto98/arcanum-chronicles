@@ -1,5 +1,5 @@
-import TelaInicial from "./components/TelaInicial";
-import Header from "./components/header";
+import TelaInicial from "./Components/TelaInicial";
+import Header from "./Components/header";
 
 
 function App() {
