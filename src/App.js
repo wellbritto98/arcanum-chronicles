@@ -8,9 +8,8 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path="/" element={<TelaInicial />} />
+          <Route path="/arcanum-chronicles/" element={<TelaInicial />} />
           <Route path="/criacao-char" element={<CriacaoChar />} />
-          <Route path="/arcanum-chronicles/" element={<Navigate to="/" />} />
         </Routes>
       </div>
     </BrowserRouter>
