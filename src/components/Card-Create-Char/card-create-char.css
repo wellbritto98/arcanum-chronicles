@@ -1,0 +1,18 @@
+.card-padrao .card-body {
+    background-color: #E6E6E6;
+}
+
+.card-padrao .card-header {
+    color: #C7915E;
+    font-family: 'Eagle Lake', cursive;
+}
+
+.card-padrao .card-body {
+
+    border-bottom-left-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
+}
+
+.card-padrao {
+    border: none;
+}

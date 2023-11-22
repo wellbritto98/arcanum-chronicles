@@ -1,19 +1,21 @@
 import './Loginbar.css'
 import React, { useState } from 'react';
 import { authService } from '../../Services/AuthService.js';
+import { useNavigate } from 'react-router-dom';
 
 const LoginBar = () => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const navigate = useNavigate(); // Hook para navegação
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
             const response = await authService.login(email, senha);
-            alert('Login bem-sucedido: ' + response.message); // Corrigido para mostrar a mensagem de sucesso
-            // Redirecione o usuário ou faça algo após o login bem-sucedido
+            alert('Login bem-sucedido: ' + response.message);
+            navigate('/criacao-char'); // Navega para a página de criação de personagem
         } catch (error) {
-            alert('Erro no login: ' + error.message); // Corrigido para mostrar a mensagem de erro
+            alert('Erro no login: ' + error.message);
         }
     };
 
@@ -31,7 +33,7 @@ const LoginBar = () => {
                             Lembrar senha
                         </label>
                     </div>
-                    <a href="#" className="form-text align-self-start ms-md-2 mb-3 mb-md-0">Esqueci a senha</a>
+                    <a href="www.youtube.com" className="form-text align-self-start ms-md-2 mb-3 mb-md-0">Esqueci a senha</a>
 
                 </span>
             </form>

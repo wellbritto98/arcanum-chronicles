@@ -5,7 +5,7 @@ function Header() {
     return (
         <header className="header-ac bg-dark text-white">
             <nav className="navbar navbar-expand-lg navbar-dark container">
-                <a className="navbar-brand" href="/">
+                <a  className="navbar-brand" href="www.youtube.com">
                     <img src="https://i.imgur.com/vqwZmE7.png" alt="Logo" />
                 </a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,7 +14,7 @@ function Header() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link" href="/apoiador">Torne-se um apoiador</a>
+                            <a className="nav-link" href="www.youtube.com">Torne-se um apoiador</a>
                         </li>
                     </ul>
                     <span className="navbar-text mx-2">Jogadores online: 100</span>

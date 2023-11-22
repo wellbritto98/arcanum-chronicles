@@ -1,6 +1,6 @@
 import './mural.css'
 import React from 'react';
-import { Navbar, Nav, Container, Btn } from 'react-bootstrap';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 
 const Mural = () => {
 
@@ -12,10 +12,10 @@ const Mural = () => {
                         <Navbar.Toggle aria-controls="basic-navbar-nav" className='bg-warning m-3 p-1' />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="me-auto w-100">
-                                <Nav.Link className='item-navegacao w-100 d-flex align-items-center justify-content-center ' href="#sobre-o-jogo">Sobre o jogo</Nav.Link>
-                                <Nav.Link className='item-navegacao w-100 d-flex align-items-center justify-content-center' href="#atualizacoes">Atualizações</Nav.Link>
-                                <Nav.Link className='item-navegacao w-100 d-flex align-items-center justify-content-center' href="#qualquer-coisa1">Qualquer coisa</Nav.Link>
-                                <Nav.Link className='item-navegacao w-100 d-flex align-items-center justify-content-center' href="#qualquer-coisa2">Qualquer coisa</Nav.Link>
+                                <Nav.Link className='item-navegacao w-100 d-flex align-items-center justify-content-center ' href="www.youtube.com">Sobre o jogo</Nav.Link>
+                                <Nav.Link className='item-navegacao w-100 d-flex align-items-center justify-content-center' href="www.youtube.com">Atualizações</Nav.Link>
+                                <Nav.Link className='item-navegacao w-100 d-flex align-items-center justify-content-center' href="www.youtube.com">Qualquer coisa</Nav.Link>
+                                <Nav.Link className='item-navegacao w-100 d-flex align-items-center justify-content-center' href="www.youtube.com">Qualquer coisa</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>
@@ -33,7 +33,7 @@ const Mural = () => {
                     </div>
 
                     <div className='ps-0 pt-3 ps-sm-5 '>
-                        <img src='https://i.imgur.com/9GG6spL.png' />
+                        <img src='https://i.imgur.com/9GG6spL.png' alt='meninos' />
                     </div>
 
 

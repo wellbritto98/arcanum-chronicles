@@ -1,14 +1,19 @@
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'; // Importe Navigate aqui
 import TelaInicial from "./Pages/TelaInicial";
-import Header from "./Components/header";
 import CriacaoChar from "./Pages/CriacaoChar";
-
 
 function App() {
   return (
-    <div className="App">
-    <CriacaoChar />
-    {/*<TelaInicial />*/}
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<TelaInicial />} />
+          <Route path="/criacao-char" element={<CriacaoChar />} />
+          <Route path="/arcanum-chronicles/" element={<Navigate to="/" />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
