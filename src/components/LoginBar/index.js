@@ -10,10 +10,10 @@ const LoginBar = () => {
         event.preventDefault();
         try {
             const response = await authService.login(email, senha);
-            console.log('Login bem-sucedido:', response);
+            alert('Login bem-sucedido: ' + response.message); // Corrigido para mostrar a mensagem de sucesso
             // Redirecione o usuário ou faça algo após o login bem-sucedido
         } catch (error) {
-            console.error('Erro no login', error);
+            alert('Erro no login: ' + error.message); // Corrigido para mostrar a mensagem de erro
         }
     };
 

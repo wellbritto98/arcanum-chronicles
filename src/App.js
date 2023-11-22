@@ -1,12 +1,13 @@
-import TelaInicial from "./Components/TelaInicial";
+import TelaInicial from "./Pages/TelaInicial";
 import Header from "./Components/header";
+import CriacaoChar from "./Pages/CriacaoChar";
 
 
 function App() {
   return (
     <div className="App">
-    <Header />
-    <TelaInicial />
+    <CriacaoChar />
+    {/*<TelaInicial />*/}
     </div>
   );
 }

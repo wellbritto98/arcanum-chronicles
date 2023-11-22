@@ -7,34 +7,32 @@ const RegisterModal = () => {
     const [senha, setSenha] = useState('');
     const [confirmacaoSenha, setConfirmacaoSenha] = useState('');
     const [dataNascimento, setDataNascimento] = useState('');
+    const [aceitaTermos, setAceitaTermos] = useState(false); // Mudar para booleano
 
     const handleRegister = async (event) => {
         event.preventDefault();
+        if (!aceitaTermos) {
+            alert('Você deve aceitar os termos de uso para se registrar.');
+            return;
+        }
         try {
-            // Formata a data de nascimento para o padrão ISO com hora e fuso horário (Z).
-            const dataNascimentoISO = `${dataNascimento}T00:00:00.954Z`
-
-            // Chama a função de registro do serviço de autenticação
-            await authService.register(email, dataNascimentoISO, senha, confirmacaoSenha);
-            alert('Usuário cadastrado com sucesso!');
-            // Aqui você pode implementar a lógica de redirecionamento ou manipulação pós-registro
+            const dataNascimentoISO = dataNascimento + 'T00:00:00.954Z';
+            const response = await authService.register(email, dataNascimentoISO, senha, confirmacaoSenha, aceitaTermos);
+            
+            alert('Usuário cadastrado com sucesso: ' + response.message);
         } catch (error) {
-            alert('Erro ao registrar usuário:', error);
-            console.log(email)
-            console.log(senha)
-            console.log(confirmacaoSenha)
-            console.log(`${dataNascimento}T00:00:00.954Z`)
-
+            alert('Erro ao registrar usuário: ' + error.message);
         }
     };
+    
 
     return (
         <div className="modal fade" id="modalRegisterForm" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
-                    <div className="modal-header">
+                    <div className="modal-header bg-subtle">
                         <h5 className="modal-title">Crie sua conta</h5>
-                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" className="btn-close bg-warning" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form onSubmit={handleRegister}>
                         <div className="modal-body">
@@ -51,7 +49,11 @@ const RegisterModal = () => {
                                 <input type="date" id="Form-birthdate" className="form-control" placeholder='Data de nascimento' onChange={(e) => setDataNascimento(e.target.value)} />
                             </div>
                         </div>
-                        <div className="modal-footer">
+                        <div className="modal-footer justify-content-between">
+                            <span>
+                                <label className='form-check-label' htmlFor='Form-terms'>Aceito os termos de uso</label>
+                                <input type='checkbox' className='form-check-input ms-2' id='Form-terms' onChange={(e)=> setAceitaTermos(e.target.checked)} />
+                            </span>
                             <button type="submit" className="btn btn-warning">Registrar-se</button>
                         </div>
                     </form>

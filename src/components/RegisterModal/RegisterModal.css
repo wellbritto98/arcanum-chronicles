@@ -33,6 +33,21 @@
 }
 
 /* Adiciona um pouco de espaço no topo do modal */
-.modal-content {
-    padding-top: 1rem; /* Espaço no topo do conteúdo do modal */
+#modalRegisterForm .modal-header {
+    background-color: #192147;
+    color: #fff;
+}
+
+#modalRegisterForm .modal-body {
+    background-color: #E6E6E6;
+}
+
+#modalRegisterForm .modal-footer {
+    background-color: #E6E6E6;
+}
+
+
+#modalRegisterForm .form-control:focus {
+    box-shadow: 0 0 10px rgba(223, 183, 78, 0.5), 0 0 20px rgba(223, 183, 78, 0.5);
+    outline: none;
 }
