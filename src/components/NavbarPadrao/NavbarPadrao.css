@@ -1,22 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap');
 
+
 .bg-dark {
-  background: linear-gradient(180deg, #162344 0%, #172549 80.12%, #0F1931 100%);
+    background: linear-gradient(180deg, #162344 0%, #172549 80.12%, #0F1931 100%);
 }
 
-.header-ac .navbar{
-  max-width: 1200px;
+.header-padrao {
+    max-width: 1200px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.header-ac .navbar-brand img {
-  height: 40px; /* Ajuste conforme necessário */
+.header-padrao .navbar {
+    max-width: 100%;
 }
 
-.header-ac .nav-link {
-  color: #C7915E !important;
+.header-padrao .navbar-brand img {
+    height: 40px;
+    /* Ajuste conforme necessário */
 }
 
-.header-ac .navbar-text {
-  color: #C7915E;
+.header-padrao .nav-link {
+    color: #C7915E !important;
 }
 
+.header-padrao .navbar-text {
+    color: #C7915E;
+}

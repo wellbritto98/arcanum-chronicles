@@ -1,10 +1,11 @@
 import axios from 'axios';
+import API_URL from './ApiUrlService';
 
-const API_URL = 'https://localhost:7048/api/Usuario/'; // Substitua com a URL da sua API
+// Substitua com a URL da sua API
 
 const login = async (email, senha) => {
   try {
-    const response = await axios.post(API_URL + 'login', { email, senha });
+    const response = await axios.post(API_URL() + "Usuario/" + 'login', { email, senha });
     if (response.data.success) {
       document.cookie = `jwt=${response.data.data.token};expires=${new Date(response.data.data.tokenExpiresAt).toUTCString()};path=/`;
       return response.data;
@@ -20,7 +21,7 @@ const login = async (email, senha) => {
 
 const register = async (email, dataNascimento, senha, confirmacaoSenha, aceitaTermos) => {
   try {
-    const response = await axios.post(API_URL + 'cadastro', {
+    const response = await axios.post(API_URL() + 'Usuario/' + 'cadastro', {
       email,
       dataNascimento,
       senha,
@@ -28,7 +29,7 @@ const register = async (email, dataNascimento, senha, confirmacaoSenha, aceitaTe
       aceitaTermos
     });
 
-    
+
     return { message: response.data };
   } catch (error) {
     console.error('Erro ao cadastrar usuário', error.response.data);

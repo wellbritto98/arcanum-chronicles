@@ -4,8 +4,8 @@ import './NavbarPadrao.css'
 
 const NavbarPadrao = () => {
     return (
-        <header className="header-ac bg-dark text-white">
-            <nav className="navbar navbar-expand-lg navbar-dark container">
+        <header className="header-padrao bg-dark text-white">
+            <nav className="navbar navbar-expand-lg navbar-dark container ps-5 pe-5">
                 <ul className="navbar-nav mr-auto container justify-content-between">
                     <li className="nav-brand active">
                         <img src="https://i.imgur.com/vqwZmE7.png" alt="Logo" />
