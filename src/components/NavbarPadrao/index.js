@@ -14,7 +14,7 @@ const NavbarPadrao = () => {
                         <Clock />
                     </li>
                     <li>
-                        <button className="btn btn-outline-light" type="button">Sair</button>
+                        <button className="btn btn-warning" type="button">Sair</button>
                     </li>
                 </ul>
             </nav>

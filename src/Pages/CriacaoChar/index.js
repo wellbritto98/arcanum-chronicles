@@ -4,6 +4,9 @@ import CardCreateChar from '../../Components/Card-Create-Char';
 import './CriacaoChar.css';
 import React, { useState, useEffect } from 'react';
 import { nomeService } from '../../Services/NomeService.js';
+import { regionService } from '../../Services/RegionService.js';
+import { typeOfMagicService } from '../../Services/TypeOfMagicService.js';
+import { charBackgroundService } from '../../Services/CharBackgroundService.js';
 import Select from 'react-select'; // Importe o React Select
 import './CriacaoChar.css';
 
@@ -14,6 +17,17 @@ const CriacaoChar = () => {
     const [nomeSelecionado, setNomeSelecionado] = useState(null);
     const [sobrenomes, setSobrenomes] = useState([]);
     const [sobrenomeSelecionado, setSobrenomeSelecionado] = useState(null);
+    const [polos, setPolos] = useState([]);
+    const [selectedPolo, setSelectedPolo] = useState(null);
+    const [typesOfMagic, setTypesOfMagic] = useState([]);
+    const [childhoodBackgrounds, setChildhoodBackgrounds] = useState([]);
+    const [fatherBackgrounds, setFatherBackgrounds] = useState([]);
+    const [motherBackgrounds, setMotherBackgrounds] = useState([]);
+    const [selectedTypeOfMagic, setSelectedTypeOfMagic] = useState(null);
+    const [selectedChildhoodBackground, setSelectedChildhoodBackground] = useState(null);
+    const [selectedFatherBackground, setSelectedFatherBackground] = useState(null);
+    const [selectedMotherBackground, setSelectedMotherBackground] = useState(null);
+
 
     useEffect(() => {
         const fetchNomes = async () => {
@@ -29,14 +43,57 @@ const CriacaoChar = () => {
             }
         };
 
+
         const fetchSobrenomes = async () => {
             const sobrenomes = await nomeService.getSurnames();
             setSobrenomes(sobrenomes);
         };
 
+
+
         fetchNomes();
         fetchSobrenomes();
     }, [genero]);
+
+
+    useEffect(() => {
+        const fetchPolos = async () => {
+            const polosData = await regionService.getPolos();
+            setPolos(polosData);
+        };
+
+        const fetchChildhoodBackgrounds = async () => {
+            const backgrounds = await charBackgroundService.getChildhoodBackgrounds();
+            setChildhoodBackgrounds(backgrounds);
+        };
+
+        const fetchFatherBackgrounds = async () => {
+            const backgrounds = await charBackgroundService.getFatherBackgrounds();
+            setFatherBackgrounds(backgrounds);
+        };
+
+
+        const fetchMotherBackgrounds = async () => {
+            const backgrounds = await charBackgroundService.getMotherBackgrounds();
+            setMotherBackgrounds(backgrounds);
+        };
+
+        const fetchTypesOfMagic = async () => {
+            const typesOfMagicData = await typeOfMagicService.getTypesOfMagic();
+            setTypesOfMagic(typesOfMagicData);
+        };
+
+        fetchFatherBackgrounds();
+        fetchMotherBackgrounds();
+        fetchChildhoodBackgrounds();
+        fetchPolos();
+
+        fetchTypesOfMagic();
+    }, []); // Empty dependency array to run only once
+
+
+
+
 
     return (
         <div className='create-char'>
@@ -69,7 +126,7 @@ const CriacaoChar = () => {
                                 <option value="2">Masculino</option>
                             </select>
 
-                            <h5 className='fw-bold mt-3'>Qual será seu nome?</h5>
+                            <h5 className='fw-bold mt-5'>Qual será seu nome?</h5>
                             <p>Temos uma vasta lista de nomes e sobrenomes disponíveis. Escolha atentamente.</p>
                             <p>Para selecionar um nome, você antes deve escolher seu gênero.</p>
                             <div className='d-flex flex-column flex-md-row'>
@@ -87,11 +144,70 @@ const CriacaoChar = () => {
                                     value={sobrenomeSelecionado}
                                     className="w-100 w-md-50"
                                     placeholder="Procure por um sobrenome"
+                                    isDisabled={!genero}
                                 />
                             </div>
 
-                            <h5 className='fw-bold mt-3'>Polo de nascimento</h5>
+                            <h5 className='fw-bold mt-5'>Polo de nascimento</h5>
                             <p>Temos dois polos, cada uma com caracteristicas distintas. A escolha não irá influenciar diretamente no desenvolvimento do seu personagem. É uma escolha totalmente para o seu “RP”.  </p>
+                            <Select
+                                options={polos}
+                                onChange={setSelectedPolo} // Use setSelectedPolo here
+                                value={selectedPolo}
+                                className="w-100 w-md-50"
+                                placeholder="Escolha um polo"
+                            />
+                            <h5 className='fw-bold mt-5'>
+                                Sobre o seu passado
+                            </h5>
+                            <h6 className='fw-bold mt-5'>
+                                Infância
+                            </h6>
+                            <Select
+                                options={childhoodBackgrounds}
+                                onChange={setSelectedChildhoodBackground}
+                                value={selectedChildhoodBackground}
+                                className="w-100 w-md-50"
+                                placeholder="Escolha um background de infância" />
+
+                            <h6 className='fw-bold mt-3'>
+                                Pai
+                            </h6>
+                            <Select
+                                options={fatherBackgrounds}
+                                onChange={setSelectedFatherBackground}
+                                value={selectedFatherBackground}
+                                className="w-100 w-md-50"
+                                placeholder="Escolha um background de pai" />
+
+                            <h6 className='fw-bold mt-3'>
+                                Mãe
+                            </h6>
+                            <Select
+                                options={motherBackgrounds}
+                                onChange={setSelectedMotherBackground}
+                                value={selectedMotherBackground}
+                                className="w-100 w-md-50"
+                                placeholder="Escolha um background de mãe" />
+
+                            <h5 className='fw-bold mt-5'>
+                                Seu Relacionamento com a magia
+                            </h5>
+                            <p >
+                                Disponibilizamos três tipos de relacionamento com a magia. O Não-magico, Magico e mestiço. Basicamente ou você tem acesso a magia ou não. Você ser mestiço ou magico não afetará na sua gameplay dentro do jogo.
+                            </p>
+                            <p>
+                                Por outra via, a decisão de ser uma pessoa sem acesso a magia lhe afetará diretamente, você não terá nenhum acesso a funcionalidades que necessitem de magia, e bom... O jogo praticamente inteiro é baseado nisto. Então ser uma pessoa não-magica é apenas uma opção de RP que adicionamos.
+                            </p>
+                            <Select
+                                options={typesOfMagic}
+                                onChange={setSelectedTypeOfMagic}
+                                value={selectedTypeOfMagic}
+                                className="w-100 w-md-50"
+                                placeholder="Escolha um tipo de magia" />
+
+                            <button className='btn btn-warning mt-5'>Criar personagem</button>    
+
                         </form>
                     }
                 />
