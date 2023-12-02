@@ -1,19 +1,24 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'; // Importe Navigate aqui
 import TelaInicial from "./Pages/TelaInicial";
 import CriacaoChar from "./Pages/CriacaoChar";
+import ProximaPagina from './Pages/ProximaPagina';
+import $ from 'jquery';
+import 'bootstrap';
 
-function App() {
-  return (
-    <BrowserRouter>
-      <div className="App">
-        <Routes>
-          <Route path="/arcanum-chronicles/" element={<TelaInicial />} />
-          <Route path="/criacao-char" element={<CriacaoChar />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
-  );
-}
+
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.min.css';
+import Rotas from './Routes';
+import GlobalSpinner from './Components/SpinnerGlobal';
+
+
+const App = () => (
+  <>
+      <Rotas />
+      <ToastContainer />
+      <GlobalSpinner/>
+  </>
+);
 
 export default App;

@@ -2,20 +2,27 @@ import './Loginbar.css'
 import React, { useState } from 'react';
 import { authService } from '../../Services/AuthService.js';
 import { useNavigate } from 'react-router-dom';
+import { toastSuccess, toastError, toastInfo } from '../../Services/ToastService.js';
+import { spinnerService } from '../../Services/spinnerService.js';
+
 
 const LoginBar = () => {
+
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const navigate = useNavigate(); // Hook para navegação
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        spinnerService.show();
         try {
             const response = await authService.login(email, senha);
-            alert('Login bem-sucedido: ' + response.message);
+            toastSuccess("Login efetuado com sucesso!");
             navigate('/criacao-char'); // Navega para a página de criação de personagem
         } catch (error) {
-            alert('Erro no login: ' + error.message);
+            toastError(error.message);
+        }  finally {
+            spinnerService.hide(); // Esconde o spinner
         }
     };
 
@@ -33,10 +40,11 @@ const LoginBar = () => {
                             Lembrar senha
                         </label>
                     </div>
-                    <a href="www.youtube.com" className="form-text align-self-start ms-md-2 mb-3 mb-md-0">Esqueci a senha</a>
-
+                    
                 </span>
             </form>
+            <button  className="bg-transparent text-white text-decoration-underline border-0 p-0 align-self-start ms-md-3 mb-3 mb-md-0 fs-6" data-bs-toggle="modal" data-bs-target="#modalForgotPasswordForm">Esqueci a senha</button>
+
         </section>
 
 

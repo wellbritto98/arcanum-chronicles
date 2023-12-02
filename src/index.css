@@ -37,3 +37,18 @@ code {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.spinner-container {
+  position: fixed; /* ou absolute */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999; /* Garante que o spinner fique acima de outros elementos */
+  background-color: rgba(48, 48, 48, 0.514);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+  
+}
+

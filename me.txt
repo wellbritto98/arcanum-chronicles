@@ -1,0 +1,57 @@
+Situação 1
+
+[Pesquisar voos disponíveis]
+            |
+            v
+[Selecionar voo]
+            |
+            v
+[Inserir informações do passageiro]
+            |
+            v
+[Efetuar pagamento]
+            |
+            v
+[Emitir bilhete]
+
+
+
+Situação 2
+
+[Pesquisar voos disponíveis]
+            |
+            v
+  [Voo disponível?] ----------> [Fim, se não disponível]
+            |
+            v
+[Selecionar voo]
+            |
+            v
+[Inserir informações do passageiro]
+            |
+            v
+[Efetuar pagamento]
+            |
+            v
+  [Pagamento confirmado?] ----> [Fim, se não confirmado]
+            |
+            v
+[Emitir bilhete]
+
+
+
+Situação 3
+
+[Envio de documento para aprovação]
+            |
+            v
+[Revisão do documento]
+            |
+            v
+[Documento aprovado?] -----> [Solicitar revisão adicional] -----> [Envio de documento para aprovação]
+            |                                                       ^
+            v                                                       |
+[Aprovação do documento]                                           |
+            |                                                       |
+            v                                                       |
+[Arquivamento] <----------------------------------------------------

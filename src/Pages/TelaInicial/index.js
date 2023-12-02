@@ -1,3 +1,4 @@
+import ForgotPasswordModal from '../../Components/ForgotPasswordModal';
 import LoginBar from '../../Components/LoginBar';
 import Mural from '../../Components/Mural';
 import RegisterModal from '../../Components/RegisterModal';
@@ -13,6 +14,7 @@ function TelaInicial() {
                     <LoginBar />
                     <Mural />
                     <RegisterModal />
+                    <ForgotPasswordModal />
                 </main>
             </section>
         </>

@@ -7,8 +7,13 @@ import { nomeService } from '../../Services/NomeService.js';
 import { regionService } from '../../Services/RegionService.js';
 import { typeOfMagicService } from '../../Services/TypeOfMagicService.js';
 import { charBackgroundService } from '../../Services/CharBackgroundService.js';
+import { handleCharacterCreationService } from '../../Services/handleCharacterCreationService.js';
 import Select from 'react-select'; // Importe o React Select
 import './CriacaoChar.css';
+import { toastError, toastSuccess } from '../../Services/ToastService.js';
+import { useNavigate } from 'react-router-dom';
+import { spinnerService } from '../../Services/spinnerService.js';
+
 
 
 const CriacaoChar = () => {
@@ -27,7 +32,7 @@ const CriacaoChar = () => {
     const [selectedChildhoodBackground, setSelectedChildhoodBackground] = useState(null);
     const [selectedFatherBackground, setSelectedFatherBackground] = useState(null);
     const [selectedMotherBackground, setSelectedMotherBackground] = useState(null);
-
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchNomes = async () => {
@@ -93,6 +98,37 @@ const CriacaoChar = () => {
 
 
 
+    const handleSubmit = async (e) => {
+        e.preventDefault(); // Impede o recarregamento da página
+
+        // Criar um objeto com os dados do formulário
+        const characterData = {
+            name: nomeSelecionado?.label,
+            surname: sobrenomeSelecionado?.label,
+            gender: genero === '1' ? 1 : 2, // Mapeando o gênero para 1 ou 2
+            characterAvatarUrl: '', // Se você tiver um campo para URL do avatar, coloque aqui
+            fatherBackgroundId: fatherBackgrounds.findIndex(bg => bg.label === selectedFatherBackground?.label) + 1,
+            motherBackgroundId: motherBackgrounds.findIndex(bg => bg.label === selectedMotherBackground?.label) + 1,
+            childhoodBackgroundId: childhoodBackgrounds.findIndex(bg => bg.label === selectedChildhoodBackground?.label) + 1,
+            birthPoloId: polos.findIndex(polo => polo.label === selectedPolo?.label) + 1,
+            typeOfMagicId: typesOfMagic.findIndex(magic => magic.label === selectedTypeOfMagic?.label) + 1,
+        };
+        spinnerService.show();
+        try {
+            const response = await handleCharacterCreationService.handleCharacterCreation(characterData);
+
+            if (response && response.success) {
+                navigate('/qualquer'); // Navega para a próxima página
+            } else {
+                console.log('Falha na criação do personagem.');
+            }
+        } catch (error) {
+            console.error('Erro ao criar personagem:', error);
+        } finally {
+            spinnerService.hide(); // Esconde o spinner
+        }
+    };
+
 
 
     return (
@@ -113,7 +149,7 @@ const CriacaoChar = () => {
                 <CardCreateChar
                     title="Vamos começar por você"
                     content={
-                        <form className='p-3'>
+                        <form onSubmit={handleSubmit} className='p-3'>
                             <h5 className='fw-bold'>Qual é o seu gênero?</h5>
                             <select
                                 className="form-select w-100 w-md-25"
@@ -206,8 +242,7 @@ const CriacaoChar = () => {
                                 className="w-100 w-md-50"
                                 placeholder="Escolha um tipo de magia" />
 
-                            <button className='btn btn-warning mt-5'>Criar personagem</button>    
-
+                            <button type='submit' className='btn btn-warning mt-5'>Criar personagem</button>
                         </form>
                     }
                 />

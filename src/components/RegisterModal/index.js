@@ -1,6 +1,11 @@
 import './RegisterModal.css';
 import React, { useState } from 'react';
 import { authService } from '../../Services/AuthService.js';// Verifique se o caminho está correto
+import { toastError, toastSuccess } from '../../Services/ToastService.js';
+import { useNavigate } from 'react-router-dom';
+import $ from 'jquery';
+import { spinnerService } from '../../Services/spinnerService.js';
+
 
 const RegisterModal = () => {
     const [email, setEmail] = useState('');
@@ -8,23 +13,35 @@ const RegisterModal = () => {
     const [confirmacaoSenha, setConfirmacaoSenha] = useState('');
     const [dataNascimento, setDataNascimento] = useState('');
     const [aceitaTermos, setAceitaTermos] = useState(false); // Mudar para booleano
+    const navigate = useNavigate();
+
+
 
     const handleRegister = async (event) => {
         event.preventDefault();
+        
         if (!aceitaTermos) {
-            alert('Você deve aceitar os termos de uso para se registrar.');
+            toastError('Você deve aceitar os termos de uso para se registrar.');
             return;
         }
+        spinnerService.show();
         try {
             const dataNascimentoISO = dataNascimento + 'T00:00:00.954Z';
             const response = await authService.register(email, dataNascimentoISO, senha, confirmacaoSenha, aceitaTermos);
             
-            alert('Usuário cadastrado com sucesso: ' + response.message);
+            
+
+            toastSuccess(response.message + ' Verifique seu email para ativar sua conta.');
+            $('#close-modal-register').click();
+            
+
         } catch (error) {
             alert('Erro ao registrar usuário: ' + error.message);
+        } finally {
+            spinnerService.hide(); // Esconde o spinner
         }
     };
-    
+
 
     return (
         <div className="modal fade" id="modalRegisterForm" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -32,7 +49,7 @@ const RegisterModal = () => {
                 <div className="modal-content">
                     <div className="modal-header bg-subtle">
                         <h5 className="modal-title">Crie sua conta</h5>
-                        <button type="button" className="btn-close bg-warning" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" id='close-modal-register' className="btn-close bg-warning" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form onSubmit={handleRegister}>
                         <div className="modal-body">
@@ -52,7 +69,7 @@ const RegisterModal = () => {
                         <div className="modal-footer justify-content-between">
                             <span>
                                 <label className='form-check-label' htmlFor='Form-terms'>Aceito os termos de uso</label>
-                                <input type='checkbox' className='form-check-input ms-2' id='Form-terms' onChange={(e)=> setAceitaTermos(e.target.checked)} />
+                                <input type='checkbox' className='form-check-input ms-2' id='Form-terms' onChange={(e) => setAceitaTermos(e.target.checked)} />
                             </span>
                             <button type="submit" className="btn btn-warning">Registrar-se</button>
                         </div>
@@ -64,3 +81,4 @@ const RegisterModal = () => {
 }
 
 export default RegisterModal;
+
