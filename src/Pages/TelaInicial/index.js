@@ -1,8 +1,8 @@
-import ForgotPasswordModal from '../../Components/ForgotPasswordModal';
-import LoginBar from '../../Components/LoginBar';
-import Mural from '../../Components/Mural';
-import RegisterModal from '../../Components/RegisterModal';
-import Header from '../../Components/header';
+import ForgotPasswordModal from '../../components/ForgotPasswordModal';
+import LoginBar from '../../components/LoginBar';
+import Mural from '../../components/Mural';
+import RegisterModal from '../../components/RegisterModal';
+import Header from '../../components/header';
 import './TelaInicial.css'
 
 function TelaInicial() {

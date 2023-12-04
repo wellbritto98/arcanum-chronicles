@@ -1,5 +1,5 @@
 const API_URL = () => {
-  return 'https://localhost:7048/api/'; 
+  return 'http://140.238.191.217/api/'; 
 }
 
 export default API_URL;

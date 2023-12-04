@@ -1,5 +1,5 @@
-import Layout from '../../Components/Layout';
-import NavbarPadrao from '../../Components/NavbarPadrao';
+import Layout from '../../components/Layout';
+import NavbarPadrao from '../../components/NavbarPadrao';
 import './ProximaPagina.css'
 
 

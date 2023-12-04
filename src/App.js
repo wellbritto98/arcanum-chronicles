@@ -10,8 +10,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.min.css';
 import Rotas from './Routes';
-import GlobalSpinner from './Components/SpinnerGlobal';
-
+import GlobalSpinner from './components/SpinnerGlobal';
 
 const App = () => (
   <>

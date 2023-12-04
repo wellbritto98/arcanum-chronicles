@@ -1,6 +1,6 @@
-import Layout from '../../Components/Layout';
-import NavbarPadrao from '../../Components/NavbarPadrao';
-import CardCreateChar from '../../Components/Card-Create-Char';
+import Layout from '../../components/Layout';
+import NavbarPadrao from '../../components/NavbarPadrao';
+import CardCreateChar from '../../components/Card-Create-Char';
 import './CriacaoChar.css';
 import React, { useState, useEffect } from 'react';
 import { nomeService } from '../../Services/NomeService.js';
