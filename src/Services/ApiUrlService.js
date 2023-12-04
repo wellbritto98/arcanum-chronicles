@@ -1,7 +1,11 @@
 const API_URL = () => {
-  const protocol = window.location.protocol;
-  const host = window.location.host;
-  return `${protocol}//${host}/api/`; 
+  let api_url = '';
+  if (process.env.REACT_APP_API_URL === undefined) {
+    api_url = 'https://localhost:7048/api/';
+  } else {
+    api_url = process.env.REACT_APP_API_URL;
+  }
+  return api_url;
 }
 
 export default API_URL;

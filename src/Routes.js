@@ -25,7 +25,7 @@ const PrivateRoutes = () => {
     return <div>Carregando...</div>; // Ou algum componente de carregamento
   }
 
-  return isAuthenticated ? <Outlet /> : <Navigate to="/arcanum-chronicles" />;
+  return isAuthenticated ? <Outlet /> : <Navigate to="/" />;
 };
 
 const Rotas = () => {
@@ -37,7 +37,7 @@ const Rotas = () => {
           <Route path="/criacao-char" element={<CriacaoChar />} />
           <Route path="/qualquer" element={<ProximaPagina />} />
         </Route>
-        <Route exact path="/arcanum-chronicles" element={<TelaInicial />} />
+        <Route exact path="/" element={<TelaInicial />} />
 
       </Routes>
     </BrowserRouter>
