@@ -21,3 +21,75 @@
 }
 
 
+.character-portrait {
+    max-width: 162px;
+    max-height: 215px;
+    overflow: hidden;
+    /* Esconde qualquer parte da imagem que exceda o tamanho da div */
+    border-radius: 8px;
+}
+
+.character-portrait img {
+    width: 100%;
+    /* A imagem se redimensionará de acordo com o tamanho do contêiner pai */
+    height: auto;
+    /* Mantém as proporções da imagem */
+    object-fit: cover;
+    /* A imagem cobrirá todo o contêiner, mantendo suas proporções */
+}
+
+.character-card {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.character-info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    color: #000;
+    text-align: justify;
+    font-family: Roboto Slab;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.link-info-character {
+    color: #C7915E;
+}
+
+
+.character-thinking {
+    background-color: #fff;
+    color: #8d8d8d;
+    text-align: justify;
+    font-family: Roboto Slab;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: normal;
+    padding: 16px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#editar-thinking{
+    cursor: pointer;
+}
+
+.modal-thinking{
+    font-family: Roboto Slab;
+}
+
+.modal-thinking .modal-header{
+    background-color: #172549;
+    color: #C7915E;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Eagle Lake;
+    text-align: center;
+}
