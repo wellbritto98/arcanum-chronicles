@@ -1,5 +1,5 @@
 .main-section {
-    background: linear-gradient(180deg, #0F1931 0%, #212C49 100%);
+    background: linear-gradient(180deg, #000F33 0%, #162C62 50%, #162C62 69.27%, #171F31 100%);
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -9,14 +9,9 @@
 }
 
 .main-content {
-    background-color: #1B2F61;
+    background-color:  #CDCDCD;
     max-width: 1200px;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
     width: 100%;
-
     box-shadow: -7px 7px 10px rgba(0, 0, 0, 0.25), 7px 7px 10px rgba(0, 0, 0, 0.25);
     
 }

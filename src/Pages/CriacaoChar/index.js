@@ -1,6 +1,6 @@
-import Layout from '../../components/Layout';
-import NavbarPadrao from '../../components/NavbarPadrao';
-import CardCreateChar from '../../components/Card-Create-Char';
+import Layout from '../../components/Layout/index.js';
+import NavbarPadrao from '../../components/NavbarPadrao/index.js';
+import CardPadrao from '../../components/CardPadrao/index.js';
 import './CriacaoChar.css';
 import React, { useState, useEffect } from 'react';
 import { nomeService } from '../../Services/NomeService.js';
@@ -132,10 +132,11 @@ const CriacaoChar = () => {
 
 
     return (
-        <div className='create-char'>
-            <Layout>
-                <NavbarPadrao />
-                <CardCreateChar
+
+        <Layout>
+            <NavbarPadrao />
+            <div className='create-char'>
+                <CardPadrao
                     title="Criação do seu personagem"
                     content={
                         <div className='p-3'>
@@ -146,7 +147,7 @@ const CriacaoChar = () => {
                     }
                 />
 
-                <CardCreateChar
+                <CardPadrao
                     title="Vamos começar por você"
                     content={
                         <form onSubmit={handleSubmit} className='p-3'>
@@ -246,8 +247,8 @@ const CriacaoChar = () => {
                         </form>
                     }
                 />
-            </Layout>
-        </div>
+            </div>
+        </Layout>
     );
 };
 

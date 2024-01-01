@@ -1,0 +1,23 @@
+.character-page {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding: 16px;
+    gap: 16px;
+}
+
+.right-column {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    padding: 16px;
+}
+
+

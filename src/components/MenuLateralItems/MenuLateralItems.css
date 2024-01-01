@@ -1,0 +1,96 @@
+.MenuLateralItems{
+    user-select: none;
+    max-width: 12.6875rem
+}
+.MenuLateralItems-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    max-height: 0;
+    border-radius: 0 0 4px 4px;
+    background: #E6E6E6;
+}
+
+.MenuLateralItems-content.expanded {
+    max-height: 500px;
+}
+
+.MenuLateralItems-content.collapsed {
+    max-height: 0;
+}
+
+.MenuLateralItems-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
+    align-items: center;
+    width: 12.6875rem;
+    height: 1.5625rem;
+    flex-shrink: 0;
+    background-color: #172549;
+    cursor: pointer;
+    color: #C7915E;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Eagle Lake;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 8px;
+}
+
+.MenuLateralItems-header.clicked {
+    border-radius: 4px 4px 0px 0px;
+    transition: 0.5s ease-out;
+}
+
+
+.MenuLateralItems-header.unclicked {
+    border-radius: 4px;
+}
+
+.MenuLateralItems ul {
+    padding: 0;
+    margin: 0;
+}
+
+.MenuLateralItems-content li {
+    list-style: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.875rem;
+    color: #172549;
+    transition: background-color 0.3s ease-out;
+    background: linear-gradient(180deg, #E6E6E6 0%, #FFFFFF 100%);
+    padding-left: 4px;
+}
+
+.MenuLateralItems-content li:hover {
+    background: linear-gradient(180deg, #fdfdfd 0%, #cfcfcf 100%);
+    cursor: pointer;
+}
+
+.MenuLateralItems-content li a {
+    text-decoration: none;
+    color: #172549;
+    font-weight: 500;
+    padding: 2px 2px 2px 4px;
+    display: block;
+    width: 100%;
+}
+
+.MenuLateralItems-content li a:hover {
+    color: #C7915E;
+    text-decoration: underline;
+}
+
+.MenuLateralItems-icon {
+    transition: transform 0.3s ease-out;
+    transform: rotate(-90deg);
+    /* Animação suave */
+}
+
+.MenuLateralItems-icon.rotated {
+    transform: rotate(0deg);
+    /* Rotaciona o ícone quando o menu está expandido */
+}
