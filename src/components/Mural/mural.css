@@ -30,10 +30,10 @@
 
 .custom-text-container {
     max-width: 800px;
-    /* Ajuste conforme necessário */
+
     width: 100%;
     margin: 0 auto;
-    /* Centraliza dentro da coluna */
+
 }
 
 .custom-text {
@@ -59,8 +59,8 @@
 
 @media screen and (max-width: 768px) {
     .item-navegacao {
-        flex-basis: 100%; /* Makes each button take full width */
-        border: none; /* Remove borders if not needed */
+        flex-basis: 100%; 
+        border: none; 
       }
     .item-navegacao:first-child {
         border-radius: 0rem 0rem 0rem 0rem;

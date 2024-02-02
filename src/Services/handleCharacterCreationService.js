@@ -21,15 +21,15 @@ const handleCharacterCreation = async (characterData) => {
             }
         });
 
-        toastSuccess(response.data.message); // Usando a mensagem de sucesso da API
+        toastSuccess(response.data.message);
          
         return response.data;
     } catch (error) {
         if (error.response) {
-            // O servidor respondeu com um status fora do intervalo 2xx
-            toastError(error.response.data.message); // Usando a mensagem de erro da API
+           
+            toastError(error.response.data.message); 
         } else {
-            // Erros não relacionados à resposta do servidor
+
             toastError('Erro ao criar personagem.');
         }
         return null;

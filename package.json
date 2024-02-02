@@ -51,7 +51,6 @@
   },
   "devDependencies": {
     "@types/jquery": "^3.5.29",
-    "gh-pages": "^6.1.0",
-    "typescript": "^5.3.3"
+    "gh-pages": "^6.1.0"
   }
 }

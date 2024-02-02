@@ -38,7 +38,7 @@ const RegisterModal = () => {
         } catch (error) {
             alert('Erro ao registrar usuário: ' + error.message);
         } finally {
-            spinnerService.hide(); // Esconde o spinner
+            spinnerService.hide(); 
         }
     };
 

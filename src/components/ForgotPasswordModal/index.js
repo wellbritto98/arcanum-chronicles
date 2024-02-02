@@ -20,7 +20,7 @@ const ForgotPasswordModal = () => {
             toastError('Email não existe !');
             console.error(error.message);
         } finally {
-            spinnerService.hide(); // Esconde o spinner
+            spinnerService.hide(); 
         }
 
     };

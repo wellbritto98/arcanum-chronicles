@@ -1,3 +1,4 @@
+import { transform } from "typescript";
 import "./CellPhone.css";
 import React, { useState } from "react";
 
@@ -7,9 +8,20 @@ const CellPhone = () => {
   const handleTabClick = () => {
     setIsOpen(!isOpen);
   };
+
+  const contentStyle = {
+    transform: isOpen ? "translateX(0)" : "translateX(-100%)",
+    
+    transition: "transform 0.3s ease-in-out"
+  };
+  const tabStyle = {
+    transform: isOpen ? "translateX(380px)" : "translateX(0)",
+    transition: "transform 0.3s ease-in-out"
+};
+
   return (
-    <div className="cell-phone">
-      <div className="cell-phone-tab">
+    <div className="cell-phone" >
+      <div className="cell-phone-tab" onClick={handleTabClick} style={tabStyle}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="50"
@@ -23,13 +35,14 @@ const CellPhone = () => {
           />
         </svg>
       </div>
-      <div className="cell-phone-content">
-        <div className="cell-phone-fully">
-        {/*  <img src="https://i.imgur.com/GAupnkg.png" alt="cellphone" />
-          <img
+      <div className="cell-phone-content" style={contentStyle}>
+        <div className="cell-phone-fully image-container">
+
+          <img className="cell-phone-image" src="https://i.imgur.com/GAupnkg.png" alt="cellphone" />
+          <img className="cell-phone-background"
             src="https://e0.pxfuel.com/wallpapers/1/441/desktop-wallpaper-pin-de-amoor-omar-em-phone-background-hipster-02-papel-de-parede-de-arte-papel-de-parede-de-celular-producao-de-arte-awesome-cool-thumbnail.jpg"
             alt="cellphone background"
-  />*/}
+          />
         </div>
       </div>
     </div>

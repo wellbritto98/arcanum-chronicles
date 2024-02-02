@@ -4,7 +4,7 @@ import API_URL from './ApiUrlService';
 
 const getFemNames = async () => {
     try {
-        // Corrigindo a URL para a rota correta
+
         const response = await axios.get(`${API_URL()}Name/NomesFem`);
         return response.data.map(name => ({ value: name.id, label: name.nameChar }));
     } catch (error) {
@@ -15,7 +15,7 @@ const getFemNames = async () => {
 
 const getMaleNames = async () => {
     try {
-        // Corrigindo a URL para a rota correta
+
         const response = await axios.get(`${API_URL()}Name/NomesMasc`);
         return response.data.map(name => ({ value: name.id, label: name.nameChar }));
     } catch (error) {
@@ -26,7 +26,7 @@ const getMaleNames = async () => {
 
 const getSurnames = async () => {
     try {
-        // Corrigindo a URL para a rota correta
+
         const response = await axios.get(`${API_URL()}Name/Sobrenomes`);
         return response.data.map(surname => ({ value: surname.id, label: surname.surnameChar }));
     } catch (error) {

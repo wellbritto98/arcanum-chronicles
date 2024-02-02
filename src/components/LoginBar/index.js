@@ -4,13 +4,17 @@ import { authService } from '../../Services/AuthService.js';
 import { useNavigate } from 'react-router-dom';
 import { toastSuccess, toastError, toastInfo } from '../../Services/ToastService.js';
 import { spinnerService } from '../../Services/spinnerService.js';
+import { jwtDecode } from 'jwt-decode';
 
 
 const LoginBar = () => {
 
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
-    const navigate = useNavigate(); // Hook para navegação
+    const navigate = useNavigate(); 
+
+
+
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -18,11 +22,28 @@ const LoginBar = () => {
         try {
             const response = await authService.login(email, senha);
             toastSuccess("Login efetuado com sucesso!");
-            navigate('/criacao-char'); // Navega para a página de criação de personagem
+            let token = jwtDecode(localStorage.getItem('jwt'));
+
+            let mainCharId = token.MainCharacterId;
+            let hasChar = token.hasCharacter;
+
+
+            console.log(token)
+            console.log(mainCharId)
+            console.log(hasChar)
+            
+     
+            if (hasChar && mainCharId !== 0) {
+              
+                navigate(`/Character/${mainCharId}`);
+            } else {
+                
+                navigate('/criacao-char');
+            }
         } catch (error) {
             toastError(error.message);
-        }  finally {
-            spinnerService.hide(); // Esconde o spinner
+        } finally {
+            spinnerService.hide(); 
         }
     };
 
@@ -32,7 +53,7 @@ const LoginBar = () => {
                 <input type="email" id="email" name="email" placeholder='Digite seu email' className="form-control me-md-2 mb-3 mb-md-0" onChange={(e) => setEmail(e.target.value)} />
                 <input type="password" id="senha" placeholder='Digite sua senha' name="senha" className="form-control me-md-2 mb-3 mb-md-0" onChange={(e) => setSenha(e.target.value)} />
                 <button type="submit" className="btn btn-warning">Entrar</button>
-                {/* Resto do seu código */}
+              
                 <span className='additionals ms-3 d-flex flex-row'>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
@@ -40,10 +61,10 @@ const LoginBar = () => {
                             Lembrar senha
                         </label>
                     </div>
-                    
+
                 </span>
             </form>
-            <button  className="bg-transparent text-white text-decoration-underline border-0 p-0 align-self-start ms-md-3 mb-3 mb-md-0 fs-6" data-bs-toggle="modal" data-bs-target="#modalForgotPasswordForm">Esqueci a senha</button>
+            <button className="bg-transparent text-white text-decoration-underline border-0 p-0 align-self-start ms-md-3 mb-3 mb-md-0 fs-6" data-bs-toggle="modal" data-bs-target="#modalForgotPasswordForm">Esqueci a senha</button>
 
         </section>
 

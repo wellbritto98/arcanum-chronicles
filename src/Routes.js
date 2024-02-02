@@ -23,24 +23,22 @@ const PrivateRoutes = () => {
   }, []);
 
   if (isAuthenticated === null) {
-    return <div>Carregando...</div>; // Ou algum componente de carregamento
+    return <div>Carregando...</div>; //mexer depois !!!!!!!!!!!!!!!!!!!!!!!!
   }
 
   return isAuthenticated ? <Outlet /> : <Navigate to="/" />;
 };
 
 const Rotas = () => {
-
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<PrivateRoutes />}>
           <Route path="/criacao-char" element={<CriacaoChar />} />
           <Route path="/qualquer" element={<ProximaPagina />} />
-          <Route path="/Character" element={<CharacterPage />} />
+          <Route path="/Character/:id" element={<CharacterPage />} />
         </Route>
         <Route exact path="/" element={<TelaInicial />} />
-
       </Routes>
     </BrowserRouter>
   );

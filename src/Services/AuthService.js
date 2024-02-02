@@ -8,9 +8,8 @@ const login = async (email, senha) => {
   try {
     const response = await axios.post(API_URL() + "Usuario/" + 'login', { email, senha });
     if (response.data.success) {
-      // Salvar o token JWT no Local Storage
-      localStorage.setItem('jwt', response.data.data.token);
-      localStorage.setItem('jwtExpiresAt', response.data.data.tokenExpiresAt);
+
+      localStorage.setItem('jwt', response.data.data);
 
       return response.data;
     } else {
@@ -18,15 +17,15 @@ const login = async (email, senha) => {
     }
   } catch (error) {
     if (error.response) {
-      // Erro vindo da resposta do servidor
+
       console.error('Erro ao fazer login', error.response.data.message);
       throw new Error(error.response.data.message);
     } else if (error.request) {
-      // O pedido foi feito, mas nenhuma resposta foi recebida
+
       console.error('Erro ao fazer login: Nenhuma resposta do servidor');
       throw new Error('Erro ao fazer login: Nenhuma resposta do servidor');
     } else {
-      // Algo aconteceu na configuração do pedido que desencadeou um erro
+
       console.error('Erro ao fazer login', error.message);
       throw error;
     }
@@ -70,11 +69,11 @@ const isTokenValid = async () => {
 
 const forgotPassword = async (email) => {
   try {
-    // Constructing the URL with the query parameter
+
     const url = new URL(API_URL() + 'Usuario/EsqueciMinhaSenha');
     url.searchParams.append('email', encodeURI(email));
 
-    // Making a POST request with the constructed URL
+
     const response = await axios.post(url.toString());
     return response.data;
   } catch (error) {
@@ -83,13 +82,39 @@ const forgotPassword = async (email) => {
   }
 };
 
+const verifyCharOwnership = async (charId) => {
+  try {
+    const token = localStorage.getItem('jwt'); // Obtendo o token JWT do localStorage
+    if (!token) {
+      throw new Error('Não autenticado');
+    }
+    const url = `${API_URL()}Character/VerifyCharOwner?id=${charId}`;
+    console.log(url);
+
+    const response = await axios.get(url, {
+      headers: {
+        'Authorization': `bearer ${token}`
+      }
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error('Erro ao verificar a propriedade do personagem', error);
+    throw new Error(error.response?.data || 'Erro ao verificar a propriedade do personagem');
+  }
+
+
+};
+
 
 
 export const authService = {
   login,
   register,
   isTokenValid,
-  forgotPassword
+  forgotPassword,
+  verifyCharOwnership
+
 };
 
 

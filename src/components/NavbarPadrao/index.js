@@ -1,8 +1,19 @@
 import Clock from '../Clock';
 import './NavbarPadrao.css'
+import { useNavigate } from 'react-router-dom';
 
 
 const NavbarPadrao = () => {
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.removeItem('jwt');
+        localStorage.removeItem('jwtExpiresAt');
+        localStorage.removeItem('userEmail');
+        localStorage.removeItem('userId');     
+        navigate('/');
+    }
+
     return (
         <header className="header-padrao bg-dark text-white">
             <nav className="navbar navbar-expand-lg navbar-dark container ps-5 pe-5">
@@ -14,7 +25,7 @@ const NavbarPadrao = () => {
                         <Clock />
                     </li>
                     <li>
-                        <button className="btn btn-warning" type="button">Sair</button>
+                        <button className="btn btn-warning" type="button" onClick={handleLogout}>Sair</button>
                     </li>
                 </ul>
             </nav>

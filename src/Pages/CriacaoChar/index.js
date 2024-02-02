@@ -8,7 +8,7 @@ import { regionService } from '../../Services/RegionService.js';
 import { typeOfMagicService } from '../../Services/TypeOfMagicService.js';
 import { charBackgroundService } from '../../Services/CharBackgroundService.js';
 import { handleCharacterCreationService } from '../../Services/handleCharacterCreationService.js';
-import Select from 'react-select'; // Importe o React Select
+import Select from 'react-select'; 
 import './CriacaoChar.css';
 import { toastError, toastSuccess } from '../../Services/ToastService.js';
 import { useNavigate } from 'react-router-dom';
@@ -94,19 +94,20 @@ const CriacaoChar = () => {
         fetchPolos();
 
         fetchTypesOfMagic();
-    }, []); // Empty dependency array to run only once
+    }, []); 
 
 
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); // Impede o recarregamento da página
+        e.preventDefault(); 
 
-        // Criar um objeto com os dados do formulário
+        
         const characterData = {
             name: nomeSelecionado?.label,
             surname: sobrenomeSelecionado?.label,
-            gender: genero === '1' ? 1 : 2, // Mapeando o gênero para 1 ou 2
-            characterAvatarUrl: '', // Se você tiver um campo para URL do avatar, coloque aqui
+            gender: genero === '1' ? 1 : 2, 
+            characterAvatarUrl: 'https://openclipart.org/image/800px/313668', 
+            thinkings: '',
             fatherBackgroundId: fatherBackgrounds.findIndex(bg => bg.label === selectedFatherBackground?.label) + 1,
             motherBackgroundId: motherBackgrounds.findIndex(bg => bg.label === selectedMotherBackground?.label) + 1,
             childhoodBackgroundId: childhoodBackgrounds.findIndex(bg => bg.label === selectedChildhoodBackground?.label) + 1,
@@ -118,14 +119,14 @@ const CriacaoChar = () => {
             const response = await handleCharacterCreationService.handleCharacterCreation(characterData);
 
             if (response && response.success) {
-                navigate('/qualquer'); // Navega para a próxima página
+                navigate('/qualquer'); 
             } else {
                 console.log('Falha na criação do personagem.');
             }
         } catch (error) {
             console.error('Erro ao criar personagem:', error);
         } finally {
-            spinnerService.hide(); // Esconde o spinner
+            spinnerService.hide(); 
         }
     };
 
@@ -189,7 +190,7 @@ const CriacaoChar = () => {
                             <p>Temos dois polos, cada uma com caracteristicas distintas. A escolha não irá influenciar diretamente no desenvolvimento do seu personagem. É uma escolha totalmente para o seu “RP”.  </p>
                             <Select
                                 options={polos}
-                                onChange={setSelectedPolo} // Use setSelectedPolo here
+                                onChange={setSelectedPolo}
                                 value={selectedPolo}
                                 className="w-100 w-md-50"
                                 placeholder="Escolha um polo"

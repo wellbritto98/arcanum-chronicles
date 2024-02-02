@@ -42,11 +42,11 @@ code {
 }
 
 .spinner-container {
-  position: fixed; /* ou absolute */
+  position: fixed; 
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 9999; /* Garante que o spinner fique acima de outros elementos */
+  z-index: 9999; 
   background-color: rgba(48, 48, 48, 0.514);
   padding: 20px;
   border-radius: 10px;

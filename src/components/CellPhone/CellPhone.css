@@ -6,10 +6,57 @@
     border-radius: 0px 8px 8px 0px;
     background: #D9D9D9;
     cursor: pointer;
+    position: fixed;
 }
 
 .cell-phone{
     position: absolute;
     top: 140px;
-    left: 0;
+
+    display: flex;
+    flex-direction: row;
+    transition: left 0.5s ease-in-out; 
+    z-index: 9999999;
+    overflow-y: auto;
+}
+
+.cell-phone-content{
+    position: fixed;
+    top: 140px;
+
+    background-color: #D9D9D9;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+
+.cell-phone-fully{
+    width: 375px;
+    height: 730px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cell-phone-fully img {
+    object-fit: cover;
+}
+
+.image-container {
+    position: relative;
+}
+
+.cell-phone-image {
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 2; 
+}
+
+.cell-phone-background {
+    position: absolute;
+    width: 329px;
+    height: 692px;
+    object-fit: cover;
+    z-index: 1;
 }
